@@ -1,0 +1,537 @@
+/* ─────────────────────────────────────────
+   QUESTION BANK BUILDER — style.css
+   ───────────────────────────────────────── */
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Design tokens ── */
+:root {
+  --bg:        #0f1117;
+  --surface:   #181c27;
+  --surface2:  #1f2335;
+  --border:    #2a2f45;
+  --border2:   #363d58;
+
+  --accent:    #6ee7b7;   /* green — correct answer, primary CTA  */
+  --accent2:   #38bdf8;   /* blue  — focus ring, hover             */
+  --danger:    #f87171;   /* red   — delete, clear                 */
+
+  --text:      #e2e8f0;
+  --muted:     #64748b;
+  --muted2:    #94a3b8;
+
+  --radius:    10px;
+  --mono:      'DM Mono', monospace;
+  --sans:      'Sora', sans-serif;
+}
+
+/* ── Page layout: 2-column grid ── */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  grid-template-rows: 56px 1fr;
+}
+
+/* ─────────────────────────────────────────
+   HEADER
+   ───────────────────────────────────────── */
+header {
+  grid-column: 1 / -1;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  gap: 12px;
+}
+
+.logo-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+header h1 {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+.header-sub {
+  font-size: 12px;
+  color: var(--muted);
+  font-family: var(--mono);
+  margin-left: auto;
+}
+
+.pill {
+  font-size: 11px;
+  font-family: var(--mono);
+  background: rgba(110, 231, 183, 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(110, 231, 183, 0.25);
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-left: 8px;
+}
+
+/* ─────────────────────────────────────────
+   LEFT PANEL — INPUT FORM
+   ───────────────────────────────────────── */
+.form-panel {
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Section headings */
+.section-label {
+  font-size: 10px;
+  font-family: var(--mono);
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Two-column row */
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+
+.form-group label {
+  font-size: 11px;
+  color: var(--muted2);
+  font-family: var(--mono);
+}
+
+/* ── Form inputs ── */
+input[type="text"],
+input[type="number"],
+select {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 13px;
+  padding: 8px 11px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+  border-color: var(--accent2);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
+}
+
+select option {
+  background: var(--surface2);
+}
+
+/* Hint text */
+.correct-hint {
+  font-size: 10px;
+  color: var(--muted);
+  font-family: var(--mono);
+  padding-left: 2px;
+}
+
+/* ── Question card ── */
+.q-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  transition: border-color 0.2s;
+}
+
+.q-card:hover {
+  border-color: var(--border2);
+}
+
+.q-card.active {
+  border-color: var(--accent2);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.08);
+}
+
+/* Card header row: number badge + question input + delete button */
+.q-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.q-num {
+  font-size: 10px;
+  font-family: var(--mono);
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--muted2);
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.q-card-header input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-size: 13px;
+  font-family: var(--sans);
+  outline: none;
+  padding: 0;
+}
+
+.q-card-header input::placeholder {
+  color: var(--muted);
+}
+
+/* Delete button */
+.del-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1;
+  padding: 0 2px;
+  transition: color 0.15s;
+}
+
+.del-btn:hover {
+  color: var(--danger);
+}
+
+/* ── Options grid: 2 columns ── */
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.option-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Circle badge A / B / C / D — click to mark correct */
+.opt-label {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1.5px solid var(--border2);
+  font-size: 10px;
+  font-family: var(--mono);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+  color: var(--muted2);
+}
+
+.opt-label.correct {
+  background: rgba(110, 231, 183, 0.15);
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 0 8px rgba(110, 231, 183, 0.2);
+}
+
+.option-row input {
+  flex: 1;
+  font-size: 12px;
+  padding: 6px 9px;
+  border-radius: 8px;
+}
+
+.option-row input.correct-opt {
+  border-color: rgba(110, 231, 183, 0.4);
+  background: rgba(110, 231, 183, 0.05);
+}
+
+/* ─────────────────────────────────────────
+   BUTTONS
+   ───────────────────────────────────────── */
+.btn {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: var(--radius);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+}
+
+/* Ghost — secondary actions */
+.btn-ghost {
+  background: none;
+  border-color: var(--border2);
+  color: var(--muted2);
+}
+
+.btn-ghost:hover {
+  border-color: var(--accent2);
+  color: var(--accent2);
+  background: rgba(56, 189, 248, 0.06);
+}
+
+/* Accent — primary CTA */
+.btn-accent {
+  background: var(--accent);
+  color: #0f1117;
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+.btn-accent:hover {
+  background: #34d399;
+}
+
+/* Danger — destructive actions */
+.btn-danger {
+  background: none;
+  border-color: rgba(248, 113, 113, 0.3);
+  color: var(--danger);
+}
+
+.btn-danger:hover {
+  background: rgba(248, 113, 113, 0.08);
+}
+
+/* Full-width button */
+.btn-full {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Row of action buttons */
+.action-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ─────────────────────────────────────────
+   RIGHT PANEL — JSON OUTPUT
+   ───────────────────────────────────────── */
+.output-panel {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.output-toolbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.output-toolbar > span {
+  font-size: 12px;
+  font-family: var(--mono);
+  color: var(--muted);
+}
+
+.stats {
+  display: flex;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.stat {
+  font-size: 11px;
+  font-family: var(--mono);
+  color: var(--muted2);
+}
+
+.stat b {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* JSON scrollable area */
+.json-wrap {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  background: var(--bg);
+  position: relative;
+}
+
+#json-out {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 1.7;
+  white-space: pre;
+  color: var(--muted2);
+  min-height: 100%;
+}
+
+/* ── JSON syntax highlighting colours ── */
+.j-key   { color: #93c5fd; }   /* blue   — keys          */
+.j-str   { color: #86efac; }   /* green  — string values */
+.j-num   { color: #fdba74; }   /* orange — numbers       */
+.j-bool  { color: #f9a8d4; }   /* pink   — true / false  */
+.j-null  { color: var(--muted); }
+.j-brace { color: #64748b; }   /* gray   — { } [ ]       */
+
+/* Sticky copy button inside the JSON panel */
+.copy-btn {
+  position: sticky;
+  top: 0;
+  float: right;
+  font-family: var(--mono);
+  font-size: 11px;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  color: var(--muted2);
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+  z-index: 1;
+}
+
+.copy-btn:hover,
+.copy-btn.copied {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Export .txt button — sits beside copy button in the toolbar */
+.export-btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  background: rgba(110, 231, 183, 0.1);
+  border: 1px solid rgba(110, 231, 183, 0.35);
+  color: var(--accent);
+  padding: 4px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-weight: 500;
+}
+
+.export-btn:hover {
+  background: rgba(110, 231, 183, 0.2);
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(110, 231, 183, 0.15);
+}
+
+.export-btn:active {
+  transform: scale(0.97);
+}
+
+/* Empty state placeholder */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 12px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 12px;
+  text-align: center;
+}
+
+.empty-state .big {
+  font-size: 40px;
+  opacity: 0.3;
+}
+
+/* ─────────────────────────────────────────
+   TOAST NOTIFICATION
+   ───────────────────────────────────────── */
+#toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--surface2);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 8px 18px;
+  border-radius: 20px;
+  opacity: 0;
+  transition: all 0.25s;
+  pointer-events: none;
+  z-index: 100;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ─────────────────────────────────────────
+   CUSTOM SCROLLBAR
+   ───────────────────────────────────────── */
+::-webkit-scrollbar        { width: 5px; height: 5px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: var(--border2); border-radius: 4px; }
+
+/* ─────────────────────────────────────────
+   RESPONSIVE — mobile stacks vertically
+   ───────────────────────────────────────── */
+@media (max-width: 768px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-rows: 56px auto auto;
+  }
+  .output-panel {
+    min-height: 400px;
+  }
+}

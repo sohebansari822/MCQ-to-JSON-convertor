@@ -1,0 +1,164 @@
+[
+  {
+    "class": "5",
+    "subject": "Mathematics",
+    "chapters": [
+      {
+        "chapterNumber": 1,
+        "chapterName": "Numbers and Place Value",
+        "questions": [
+          {
+            "id": "q001",
+            "text": "What is the place value of 7 in the number 3,742?",
+            "options": ["Ones", "Tens", "Hundreds", "Thousands"],
+            "correctOption": 2
+          },
+          {
+            "id": "q002",
+            "text": "Which of the following is the largest number?",
+            "options": ["4,321", "4,231", "4,312", "4,132"],
+            "correctOption": 0
+          },
+          {
+            "id": "q003",
+            "text": "What is 5,000 + 300 + 40 + 6 in standard form?",
+            "options": ["5,346", "5,436", "5,364", "5,643"],
+            "correctOption": 0
+          }
+        ]
+      },
+      {
+        "chapterNumber": 2,
+        "chapterName": "Fractions",
+        "questions": [
+          {
+            "id": "q001",
+            "text": "What is 1/2 + 1/4?",
+            "options": ["1/4", "3/4", "1/2", "2/4"],
+            "correctOption": 1
+          },
+          {
+            "id": "q002",
+            "text": "Which fraction is equivalent to 2/4?",
+            "options": ["1/4", "3/4", "1/2", "3/6"],
+            "correctOption": 2
+          },
+          {
+            "id": "q003",
+            "text": "What is 3/4 of 20?",
+            "options": ["10", "12", "15", "16"],
+            "correctOption": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "class": "5",
+    "subject": "Science",
+    "chapters": [
+      {
+        "chapterNumber": 1,
+        "chapterName": "Plants and Photosynthesis",
+        "questions": [
+          {
+            "id": "q001",
+            "text": "Which part of the plant makes food using sunlight?",
+            "options": ["Root", "Stem", "Leaf", "Flower"],
+            "correctOption": 2
+          },
+          {
+            "id": "q002",
+            "text": "What gas do plants release during photosynthesis?",
+            "options": ["Carbon dioxide", "Nitrogen", "Oxygen", "Hydrogen"],
+            "correctOption": 2
+          },
+          {
+            "id": "q003",
+            "text": "What is the green pigment in leaves called?",
+            "options": ["Melanin", "Chlorophyll", "Carotene", "Hemoglobin"],
+            "correctOption": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "class": "6",
+    "subject": "Mathematics",
+    "chapters": [
+      {
+        "chapterNumber": 1,
+        "chapterName": "Integers",
+        "questions": [
+          {
+            "id": "q001",
+            "text": "What is the value of -5 + 8?",
+            "options": ["-3", "3", "13", "-13"],
+            "correctOption": 1
+          },
+          {
+            "id": "q002",
+            "text": "Which integer is greater: -7 or -3?",
+            "options": ["-7", "-3", "Both are equal", "Cannot be determined"],
+            "correctOption": 1
+          },
+          {
+            "id": "q003",
+            "text": "What is the absolute value of -9?",
+            "options": ["-9", "0", "9", "1/9"],
+            "correctOption": 2
+          }
+        ]
+      },
+      {
+        "chapterNumber": 2,
+        "chapterName": "Algebra Basics",
+        "questions": [
+          {
+            "id": "q001",
+            "text": "If x + 5 = 12, what is x?",
+            "options": ["5", "6", "7", "8"],
+            "correctOption": 2
+          },
+          {
+            "id": "q002",
+            "text": "What is the value of 3y when y = 4?",
+            "options": ["7", "12", "34", "1"],
+            "correctOption": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "class": "7",
+    "subject": "English",
+    "chapters": [
+      {
+        "chapterNumber": 1,
+        "chapterName": "Parts of Speech",
+        "questions": [
+          {
+            "id": "q001",
+            "text": "Which word is a noun in the sentence: 'The dog runs fast'?",
+            "options": ["The", "dog", "runs", "fast"],
+            "correctOption": 1
+          },
+          {
+            "id": "q002",
+            "text": "Which of the following is an adjective?",
+            "options": ["Run", "Quickly", "Beautiful", "Sing"],
+            "correctOption": 2
+          },
+          {
+            "id": "q003",
+            "text": "What type of word is 'slowly' in: 'She walked slowly'?",
+            "options": ["Noun", "Verb", "Adjective", "Adverb"],
+            "correctOption": 3
+          }
+        ]
+      }
+    ]
+  }
+]

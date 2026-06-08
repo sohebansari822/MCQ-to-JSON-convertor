@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Question Bank Builder</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- ── TOP HEADER ── -->
+  <header>
+    <div class="logo-dot"></div>
+    <h1>Question Bank Builder</h1>
+    <span class="pill">JSON</span>
+    <span class="header-sub">school test module</span>
+  </header>
+
+  <!-- ── LEFT PANEL: INPUT FORM ── -->
+  <div class="form-panel">
+
+    <!-- Metadata section -->
+    <div class="section-label">📚 Library metadata</div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="meta-class">Class</label>
+        <select id="meta-class">
+          <option value="">— select —</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="meta-subject">Subject</label>
+        <input type="text" id="meta-subject" placeholder="e.g. Mathematics"/>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="meta-chapter-num">Chapter no.</label>
+        <input type="number" id="meta-chapter-num" placeholder="1" min="1"/>
+      </div>
+      <div class="form-group">
+        <label for="meta-chapter-name">Chapter name</label>
+        <input type="text" id="meta-chapter-name" placeholder="e.g. Fractions"/>
+      </div>
+    </div>
+
+    <!-- Questions section -->
+    <div class="section-label" style="margin-top: 4px">❓ Questions</div>
+    <div class="correct-hint">Click the circle (A B C D) next to an option to mark the correct answer</div>
+
+    <!-- Question cards render here by JS -->
+    <div id="questions-list"></div>
+
+    <!-- Action buttons -->
+    <div class="action-row">
+      <button class="btn btn-ghost" id="btn-add">＋ Add question</button>
+      <button class="btn btn-danger" id="btn-clear">✕ Clear all</button>
+    </div>
+
+    <button class="btn btn-accent btn-full" id="btn-copy-bottom">⬇ Copy JSON</button>
+
+  </div>
+
+  <!-- ── RIGHT PANEL: JSON OUTPUT ── -->
+  <div class="output-panel">
+    <div class="output-toolbar">
+      <span>output.json</span>
+      <div class="stats">
+        <span class="stat">questions: <b id="stat-q">0</b></span>
+        <span class="stat">complete: <b id="stat-c">0</b></span>
+      </div>
+      <button class="export-btn" id="btn-export-txt">⬇ Export .txt</button>
+      <button class="copy-btn" id="btn-copy-top">copy</button>
+    </div>
+    <div class="json-wrap">
+      <pre id="json-out">
+        <div class="empty-state">
+          <div class="big">{ }</div>
+          <div>Fill in the form on the left<br/>JSON appears here instantly</div>
+        </div>
+      </pre>
+    </div>
+  </div>
+
+  <!-- Toast notification -->
+  <div id="toast">Copied to clipboard!</div>
+
+  <script src="app.js"></script>
+</body>
+</html>
